@@ -9,6 +9,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Collections.Generic;
 
+
+using CCWin;
+
 namespace WindowsContronlDemov0._0._1
 {
     public partial class Form1 : Form
@@ -54,6 +57,12 @@ namespace WindowsContronlDemov0._0._1
                     int hwnd = WindowLike.get_handle();
                     //MessageBox.Show(s[0],s[1]);
                     this.now_handle_hwnd = hwnd;
+                    System.Drawing.Rectangle rec = Screen.GetWorkingArea(this);
+
+                    int SH = rec.Height;
+
+                    int SW = System.Windows.Forms.SystemInformation.WorkingArea.Width;
+                    Console.WriteLine(Screen.PrimaryScreen.Bounds.Width.ToString());
                     break;
                 case 1:
                     this.capture();
@@ -191,9 +200,8 @@ namespace WindowsContronlDemov0._0._1
             if (this.now_handle_hwnd == 0) MessageBox.Show("请先获取句柄等相关信息");
             else
             {
-                int w = this.W.Text == "" ? 0 : Int32.Parse(this.W.Text) ;
-                int h = this.H.Text == "" ? 0 : Int32.Parse(this.H.Text);
-                Bitmap pic = WindowLike.get_window_pic(new IntPtr(this.now_handle_hwnd), w, h);
+                
+                Bitmap pic = WindowLike.get_window_pic(new IntPtr(this.now_handle_hwnd), 0, 0);
                 if (pic != null)
                 {
 
@@ -222,6 +230,14 @@ namespace WindowsContronlDemov0._0._1
 
         private void window_name_Click(object sender, EventArgs e)
         {
+
+        }
+
+        Interpreter interpreter = new Interpreter();
+        private void run_Click(object sender, EventArgs e)
+        {
+            interpreter.interpreter(this.script.Text);
+
 
         }
     }

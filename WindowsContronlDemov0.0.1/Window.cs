@@ -204,11 +204,14 @@ namespace WindowsContronlDemov0._0._1
             if (!hwnd1.Equals(IntPtr.Zero))
             {
                 //MessageBox.Show("1！");
+                int SH = Screen.PrimaryScreen.Bounds.Height;
+                int SW = Screen.PrimaryScreen.Bounds.Width;
                 GetWindowRect(hwnd1, out rect);  //获得目标窗体的大小  
                 //int SW = Screen.PrimaryScreen.Bounds.Width; 
                 //MessageBox.Show(rect.Right.ToString() + "," + rect.Left.ToString() + "," + rect.Width.ToString());
-                int width = w == 0 ? rect.Right - rect.Left : w;
-                int height = h == 0 ? rect.Bottom - rect.Top : h;
+                int width = (w == 0 ? rect.Right - rect.Left : w) ;
+                int height = (h == 0 ? rect.Bottom - rect.Top : h) ;
+                //MessageBox.Show(width.ToString() + "," + rect.Left.ToString() + "," +height.ToString());
                 Bitmap QQPic = new Bitmap(width, height );
                 
                 //MessageBox.Show((rect.Width - rect.Left).ToString() + "，" + (rect.Height - rect.Top).ToString());
@@ -217,8 +220,8 @@ namespace WindowsContronlDemov0._0._1
                 IntPtr hdc2 = g1.GetHdc();  //得到Bitmap的DC  
                 BitBlt(hdc2, 0, 0, width, height, hdc1, 0, 0, 13369376);
                 g1.ReleaseHdc(hdc2);  //释放掉Bitmap的DC  
-                string filename = @".\pic\"+count + ".jpg";
-                //QQPic.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
+                string filename = @".\pic\"+ DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss") + ".jpg";
+                QQPic.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
                 count++;
                 return QQPic;
                 //以JPG文件格式保存  

@@ -49,10 +49,8 @@ namespace WindowsContronlDemov0._0._1
             this.label4 = new System.Windows.Forms.Label();
             this.imageView = new System.Windows.Forms.PictureBox();
             this.capturePic = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.W = new System.Windows.Forms.TextBox();
-            this.H = new System.Windows.Forms.TextBox();
+            this.script = new System.Windows.Forms.TextBox();
+            this.run = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imageView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,37 +155,23 @@ namespace WindowsContronlDemov0._0._1
             this.capturePic.UseVisualStyleBackColor = true;
             this.capturePic.Click += new System.EventHandler(this.capturePic_Click);
             // 
-            // label5
+            // script
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 98);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 18);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "W:";
+            this.script.Location = new System.Drawing.Point(577, 55);
+            this.script.Multiline = true;
+            this.script.Name = "script";
+            this.script.Size = new System.Drawing.Size(263, 91);
+            this.script.TabIndex = 23;
             // 
-            // label6
+            // run
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 128);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 18);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "H:";
-            // 
-            // W
-            // 
-            this.W.Location = new System.Drawing.Point(64, 95);
-            this.W.Name = "W";
-            this.W.Size = new System.Drawing.Size(159, 28);
-            this.W.TabIndex = 20;
-            // 
-            // H
-            // 
-            this.H.Location = new System.Drawing.Point(64, 125);
-            this.H.Name = "H";
-            this.H.Size = new System.Drawing.Size(159, 28);
-            this.H.TabIndex = 21;
+            this.run.Location = new System.Drawing.Point(853, 58);
+            this.run.Name = "run";
+            this.run.Size = new System.Drawing.Size(34, 87);
+            this.run.TabIndex = 24;
+            this.run.Text = "执行";
+            this.run.UseVisualStyleBackColor = true;
+            this.run.Click += new System.EventHandler(this.run_Click);
             // 
             // Form1
             // 
@@ -195,10 +179,8 @@ namespace WindowsContronlDemov0._0._1
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(900, 500);
-            this.Controls.Add(this.H);
-            this.Controls.Add(this.W);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.run);
+            this.Controls.Add(this.script);
             this.Controls.Add(this.capturePic);
             this.Controls.Add(this.imageView);
             this.Controls.Add(this.textBox_MouseY);
@@ -234,10 +216,8 @@ namespace WindowsContronlDemov0._0._1
         private Label label4;
         private PictureBox imageView;
         private Button capturePic;
-        private Label label5;
-        private Label label6;
-        private TextBox W;
-        private TextBox H;
+        private TextBox script;
+        private Button run;
     }
 }
 

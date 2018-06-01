@@ -40,15 +40,15 @@ namespace WindowsContronlDemov0._0._1
         {
             int SH = Screen.PrimaryScreen.Bounds.Height;
             int SW = Screen.PrimaryScreen.Bounds.Width;
-            MessageBox.Show(SW.ToString());
+            MessageBox.Show((X * 65536 / SW).ToString());
             
             mouse_event(MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE, X * 65536 / SW, Y * 65536 / SH, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
         }
-        static public void mockWheel()
+        static public void mockWheel(int distance = -100)
         {
             //MessageBox.Show("click");
-            mouse_event(MOUSEEVENTF_WHEEL, 0, 0, -100, 0);
+            mouse_event(MOUSEEVENTF_WHEEL, 0, 0, distance, 0);
         }
         static Point p = new Point(1, 1);//定义存放获取坐标的point变量 
         static public Point getMousePoint()
